@@ -13,6 +13,10 @@ public:
         glutSwapBuffers(); 
     }
 
+    static void redraw(){
+        glutPostRedisplay();
+    }
+
     static void set_draw_color(float R, float G, float B, float A){ 
 
         glColor4f(R, G, B, A);

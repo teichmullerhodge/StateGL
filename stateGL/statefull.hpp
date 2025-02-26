@@ -20,6 +20,9 @@ public:
 
     static StateV<float> size;
     static StateV<float> e;
+    static StateV<float> x1, x2, x3, x4;
+    static StateV<float> y1, y2, y3, y4;
+
     static std::string savePath;
     static bool savePathLoaded;
 
@@ -27,7 +30,7 @@ public:
 
     // ? methods 
     static bool init(const char *path);
-    static void watch_state();
-    static void reload_state(std::ifstream &f);
+    static bool watch_state();
+    static bool reload_state(std::ifstream &f);
     
 };

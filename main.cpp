@@ -13,7 +13,11 @@ void update(){
 
     if(Statefull::savePathLoaded){
 
-        Statefull::watch_state();
+        bool shouldReload = Statefull::watch_state();
+        if(shouldReload){
+            std::cout << "Reloading state" << std::endl;
+            Scene::redraw();
+        }
     }
 
     float red[] = {1.0f, 0.0f, 0.0f, 1.0f};
@@ -21,21 +25,20 @@ void update(){
     float blue[] = {0.0f, 0.0f, 1.0f, 1.0f};
     float pink[] = {1.0f, 0.0f, 1.0f, 1.0f};
     // printf("%f\n", Statefull::size.value);
-    glBegin(GL_POLYGON);        
+    glBegin(GL_QUADS);        
 
         Scene::set_draw_color(red);
-        glVertex2f(-Statefull::size.value, 0.0f);
-
+        // glVertex2f(-Statefull::size.value, 0.0f);
+        glVertex2f(Statefull::x1.value, Statefull::y1.value);
         Scene::set_draw_color(green);
-        glVertex2f(0.0f, Statefull::size.value);
-
+        // glVertex2f(0.0f, Statefull::size.value);
+        glVertex2f(Statefull::x2.value, Statefull::y2.value);
         Scene::set_draw_color(blue);
-        glVertex2f(Statefull::size.value, 0.0f);
-
-        
+        // glVertex2f(Statefull::size.value, 0.0f);
+        glVertex2f(Statefull::x3.value, Statefull::y3.value);
         Scene::set_draw_color(pink);
-        glVertex2f(0.0f, -Statefull::size.value);
-
+        // glVertex2f(0.0f, -Statefull::size.value);
+        glVertex2f(Statefull::x4.value, Statefull::y4.value);
         
             
     glEnd(); 
