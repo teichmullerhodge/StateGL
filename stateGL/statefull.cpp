@@ -10,10 +10,11 @@ StateV<float> Statefull::x1, Statefull::x2, Statefull::x3, Statefull::x4;
 StateV<float> Statefull::y1, Statefull::y2, Statefull::y3, Statefull::y4;
 std::string Statefull::savePath;
 bool Statefull::savePathLoaded;
+bool Statefull::shouldReload;
 fs::file_time_type Statefull::timestamp;
 
 bool Statefull::init(const char *path) {
-
+    shouldReload = false;
     savePath = path;
     timestamp = fs::file_time_type::clock::now();
 

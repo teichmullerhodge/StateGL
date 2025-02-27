@@ -42,8 +42,20 @@ public:
 
     }
 
+    static void register_mouse_click_callback(void (*callback)(int, int, int, int)){
+
+        glutMouseFunc(callback);
+
+    }
+
+    static void register_mouse_callback(void (*callback)(int, int)){
+        
+        glutPassiveMotionFunc(callback);
+
+    }
+
     static void main_loop(void (*callback)()){
-     
+        
         glutIdleFunc(callback); 
         glutMainLoop(); 
 

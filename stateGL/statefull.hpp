@@ -25,7 +25,7 @@ public:
 
     static std::string savePath;
     static bool savePathLoaded;
-
+    static bool shouldReload;
     static std::filesystem::file_time_type timestamp;
 
     // ? methods 
